@@ -25,9 +25,9 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('getByPlaceholder', (placeholder) => {
-  cy.get(`[placeholder="${placeholder}"]`);
+  return cy.get(`[placeholder="${placeholder}"]`);
 });
 
 Cypress.Commands.add('getByDataCy', (selector) => {
-  cy.get(`[data-cy="${selector}"]`);
+  return cy.get(`[data-cy="${selector}"]`);
 });

@@ -2,7 +2,7 @@
 /// <reference types='../support' />
 
 import HomePageObject from '../support/pages/home.pageObject';
-import SignUpPageObject from '../support/pages/singUp.pageObject';
+import SignUpPageObject from '../support/pages/signUp.pageObject';
 import { generateUser } from '../support/utils/generateUser';
 
 describe('Sign Up page', () => {
@@ -27,21 +27,9 @@ describe('Sign Up page', () => {
     homePage.assertHeaderContainUsername(user.username);
   });
 
-  // it.only('should not be a possibility to register for an existing user', () => {
-  //   cy.contains('a', 'Sign up').click();
-  //   cy.url().should('include', '/user/register');
-
-  //   signUpPage.typeUsername(user.username);
-  //   signUpPage.typeEmail(user.email);
-  //   signUpPage.typePassword(user.password);
-
-  //   signUpPage.clickSignUpBtn();
-  //   cy.contains('li', 'This email is taken.').should('be.visible');
-  // });
-
   it('should not register if no username is entered', () => {
     cy.contains('a', 'Sign up').click();
-    cy.url().should('include', '/user/register');
+    cy.url().should('include', '/register');
 
     signUpPage.typeEmail(user.email);
     signUpPage.typePassword(user.password);
@@ -56,7 +44,7 @@ describe('Sign Up page', () => {
 
   it('should not register if email is not entered', () => {
     cy.contains('a', 'Sign up').click();
-    cy.url().should('include', '/user/register');
+    cy.url().should('include', '/register');
 
     signUpPage.typeUsername(user.username);
     signUpPage.typePassword(user.password);
@@ -67,7 +55,7 @@ describe('Sign Up page', () => {
 
   it('should not register if no password is entered', () => {
     cy.contains('a', 'Sign up').click();
-    cy.url().should('include', '/user/register');
+    cy.url().should('include', '/register');
 
     signUpPage.typeUsername(user.username);
     signUpPage.typeEmail(user.email);
